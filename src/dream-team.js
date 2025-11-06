@@ -17,8 +17,14 @@ function createDreamTeam( members ) {
   if(members === undefined || !Array.isArray(members) || members.length === 0 ) {
     return false;
   }
+  
   const clearNamesArray = members.filter(item => typeof item === 'string').map(name => name.trim()).filter(elem => elem.length > 0);
-  const firstLettersArray = clearNamesArray.map(name => name[0].toUpperCase);
+  
+  const firstLettersArray = clearNamesArray.map(name => {
+    const firstChar = name[0];
+    return firstChar.toUpperCase(); // Явный вызов метода
+  });
+
   return firstLettersArray.sort().join('');
 }
 

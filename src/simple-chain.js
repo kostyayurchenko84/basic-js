@@ -22,18 +22,19 @@ const chainMaker = {
     return this;
   },
   removeLink( position ) {
-    if(typeof position !== number || isNaN(position) || !Number.isInteger(position) || position < 1 || position > this.chain.length) {  
+    if(typeof position !== 'number' || isNaN(position) || !Number.isInteger(position) || position < 1 || position > this.chain.length) {  
       this.chain = [];
       throw new Error("You can't remove incorrect link!");
     }
-    return this.chain.splice(position - 1, 1);
+    this.chain.splice(position - 1, 1)
+    return this;
   },
   reverseChain() {
     this.chain.reverse();
     return this;
   },
   finishChain() {
-    this.chain.join('~~');
+    const res = this.chain.join('~~');
     this.chain = [];
     return res;
   },

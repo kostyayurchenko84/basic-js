@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../lib');
  *
  */
 function countCats( matrix ) {
-  const count = 0;
+  let count = 0;
   if(matrix === undefined || !Array.isArray(matrix) || !matrix.every(row => Array.isArray(row))) {
     return false;
   }
